@@ -1,4 +1,6 @@
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+// const URL:&str = "192.168.29.100:8080";
+const URL:&str = "0.0.0.0:8080";
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -12,14 +14,14 @@ async fn health() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("Server starting on http://0.0.0.0:8080");
+    println!("Server starting on {}",URL);
 
     HttpServer::new(|| {
         App::new()
             .service(hello)
             .service(health)
     })
-    .bind("0.0.0.0:8080")?
+    .bind(URL)?
     .run()
     .await
 }
