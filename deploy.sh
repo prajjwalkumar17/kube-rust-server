@@ -43,7 +43,7 @@ echo "Waiting for deployment to be ready..."
 kubectl rollout status deployment/rust-server -n rust-server
 
 echo "Deployment complete! Your server should be accessible at:"
-echo "  - http://192.168.29.100:8080"
+echo "  - http://192.168.31.121:8080"
 echo "  - http://rust-server.home (if DNS is properly configured)"
 
 echo "To check the status of your pods:"
